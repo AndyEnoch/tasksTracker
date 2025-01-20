@@ -1,10 +1,12 @@
 import "./App.css";
+import { TaskList } from "./components/TaskList";
+import { TaskProvider } from "./context/TasksContext";
 
 function App() {
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
+    <TaskProvider>
+      <TaskList />
+    </TaskProvider>
   );
 }
 
