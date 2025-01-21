@@ -2,9 +2,11 @@ import styled from "styled-components";
 import { Priority } from "../types";
 
 export const Container = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 3rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;
 
 export const Title = styled.h1`
@@ -104,9 +106,7 @@ export const ColumnContainer = styled.div`
   flex: 1;
   min-width: 300px;
   background: #f7fafc;
-  border-radius: 0.375rem;
   padding: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;
 
 export const ColumnTitle = styled.h2`
@@ -188,4 +188,157 @@ export const PriorityBadge = styled.span<{
                 `;
     }
   }}
+`;
+
+export const FilterContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: end;
+  padding: 0 1rem;
+`;
+
+export const FilterGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+export const Label = styled.label`
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #2d3748;
+`;
+
+export const FilterSelect = styled.select`
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  min-width: 150px;
+
+  &:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+  }
+`;
+
+export const SearchInput = styled.input`
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+  width: 250px;
+
+  &:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+  }
+`;
+
+export const ClearButton = styled.button`
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #edf2f7;
+  }
+`;
+
+export const FormContainer = styled.div`
+  margin-bottom: 2rem;
+`;
+
+export const Form = styled.form<{ hidden?: boolean }>`
+  display: ${(props) => (props.hidden ? "none" : "flex")};
+  flex-direction: column;
+  gap: 1rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.375rem;
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+export const FormInput = styled.input`
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+
+  &:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+  }
+`;
+
+export const TextArea = styled.textarea`
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+  min-height: 100px;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+  }
+`;
+
+export const FormSelect = styled.select`
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0;
+
+  &:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+  }
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+`;
+
+export const FormButton = styled.button<{ variant?: "primary" | "secondary" }>`
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+
+  ${(props) =>
+    props.variant === "primary"
+      ? `
+    background-color: ${props.theme.colors.primary};
+    color: white;
+    
+    &:hover {
+      background-color: ${props.theme.colors.primary}dd;
+    }
+  `
+      : `
+    background-color: ${props.theme.colors.secondary};
+    color: white;
+    
+    &:hover {
+      background-color: ${props.theme.colors.secondary}dd;
+    }
+  `}
+`;
+
+const AddButton = styled(Button)`
+  margin-bottom: 1rem;
 `;
