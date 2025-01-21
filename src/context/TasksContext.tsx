@@ -82,7 +82,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(initialTasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   const addTask = (task: Omit<Task, "id">) => {
