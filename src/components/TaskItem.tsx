@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import { Task } from "../types";
 
@@ -19,7 +19,7 @@ interface TaskItemProps {
   index: number;
 }
 
-export const TaskItem: React.FC<TaskItemProps> = ({ task, index }) => {
+export const TaskItem = ({ task, index }: TaskItemProps) => {
   const { editTask, deleteTask } = useTaskContext();
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState(task);

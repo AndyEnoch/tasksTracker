@@ -338,7 +338,3 @@ export const FormButton = styled.button<{ variant?: "primary" | "secondary" }>`
     }
   `}
 `;
-
-const AddButton = styled(Button)`
-  margin-bottom: 1rem;
-`;

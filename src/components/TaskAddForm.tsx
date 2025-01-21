@@ -24,7 +24,7 @@ export const TaskForm = ({ onClose }: { onClose: () => void }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    addTask({ ...formData, column: "Todo" });
+    addTask(formData);
     setFormData({
       title: "",
       description: "",
@@ -88,6 +88,24 @@ export const TaskForm = ({ onClose }: { onClose: () => void }) => {
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
+          </Select>
+        </InputGroup>
+
+        <InputGroup>
+          <Label htmlFor="column">Column</Label>
+          <Select
+            id="column"
+            value={formData.column}
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                column: e.target.value as Column,
+              }))
+            }
+          >
+            <option value="Todo">Todo</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
           </Select>
         </InputGroup>
 

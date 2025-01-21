@@ -1,4 +1,3 @@
-import React from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { Column } from "./Column";
 import { Column as ColumnType } from "../types";
@@ -7,7 +6,7 @@ import { useTaskContext } from "../context/TasksContext";
 
 const COLUMNS: ColumnType[] = ["Todo", "In Progress", "Done"];
 
-export const Board: React.FC = () => {
+export const Board = () => {
   const { tasks, moveTask, filterPriority, searchQuery } = useTaskContext();
 
   const filteredTasks = tasks.filter((task) => {
@@ -26,7 +25,11 @@ export const Board: React.FC = () => {
     const destinationColumn = result.destination.droppableId as ColumnType;
     const taskId = result.draggableId;
 
-    if (sourceColumn !== destinationColumn) {
+    if (
+      sourceColumn &&
+      destinationColumn &&
+      sourceColumn !== destinationColumn
+    ) {
       moveTask(taskId, destinationColumn);
     }
   };

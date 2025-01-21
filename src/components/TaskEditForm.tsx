@@ -16,13 +16,13 @@ interface TaskEditFormProps {
   showColumnSelector?: boolean;
 }
 
-const TaskEditForm: React.FC<TaskEditFormProps> = ({
+const TaskEditForm = ({
   editData,
   setEditData,
   handleSave,
   handleCancel,
   showColumnSelector = false,
-}) => {
+}: TaskEditFormProps) => {
   return (
     <div style={{ padding: "0.5rem" }}>
       <Input

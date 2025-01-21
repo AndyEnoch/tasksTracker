@@ -21,7 +21,7 @@ function App() {
   return (
     <Container>
       <FlexContainer style={{ padding: "1rem" }}>
-        <Title>Task Tracker</Title>
+        <Title>Task tracker</Title>
         <Button onClick={handleToggleAddTask}>Add Task</Button>
       </FlexContainer>
       <TaskProvider>
