@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { Task, Priority } from "../types";
+import { Task, Priority, Column } from "../types";
 
 interface TaskContextType {
   tasks: Task[];
@@ -11,6 +11,7 @@ interface TaskContextType {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   reorderTasks: (startIndex: number, endIndex: number) => void;
+  moveTask: (taskId: string, destinationColumn: Column) => void;
 }
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
@@ -31,31 +32,57 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
       title: "Task 1",
       description: "Description for Task 1",
       priority: "Low",
+      column: "Todo",
     },
     {
       id: "2",
       title: "Task 2",
       description: "Description for Task 2",
       priority: "Medium",
+      column: "In Progress",
     },
     {
       id: "3",
       title: "Task 3",
       description: "Description for Task 3",
       priority: "High",
+      column: "Done",
+    },
+    {
+      id: "4",
+      title: "Task 4",
+      description: "Description for Task 4",
+      priority: "Low",
+      column: "Todo",
+    },
+    {
+      id: "5",
+      title: "Task 5",
+      description: "Description for Task 5",
+      priority: "Medium",
+      column: "In Progress",
+    },
+    {
+      id: "6",
+      title: "Task 6",
+      description: "Description for Task 6",
+      priority: "High",
+      column: "Done",
     },
   ];
   const [tasks, setTasks] = useState<Task[]>(() => {
     const savedTasks = localStorage.getItem("tasks");
     console.log(savedTasks);
-    return savedTasks ? JSON.parse(savedTasks) : initialTasks;
+    return savedTasks ? JSON.parse(savedTasks) : [];
   });
+
+  console.log("tasks", tasks);
 
   const [filterPriority, setFilterPriority] = useState<Priority | "All">("All");
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(initialTasks));
   }, [tasks]);
 
   const addTask = (task: Omit<Task, "id">) => {
@@ -77,6 +104,14 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
     setTasks(newTasks);
   };
 
+  const moveTask = (taskId: string, destinationColumn: Column) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === taskId ? { ...task, column: destinationColumn } : task
+      )
+    );
+  };
+
   return (
     <TaskContext.Provider
       value={{
@@ -89,6 +124,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
         searchQuery,
         setSearchQuery,
         reorderTasks,
+        moveTask,
       }}
     >
       {children}
