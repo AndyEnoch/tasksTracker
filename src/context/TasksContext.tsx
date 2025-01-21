@@ -23,60 +23,55 @@ export const useTaskContext = () => {
   return context;
 };
 
-export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const initialTasks = [
-    {
-      id: "1",
-      title: "Task 1",
-      description: "Description for Task 1",
-      priority: "Low",
-      column: "Todo",
-    },
-    {
-      id: "2",
-      title: "Task 2",
-      description: "Description for Task 2",
-      priority: "Medium",
-      column: "In Progress",
-    },
-    {
-      id: "3",
-      title: "Task 3",
-      description: "Description for Task 3",
-      priority: "High",
-      column: "Done",
-    },
-    {
-      id: "4",
-      title: "Task 4",
-      description: "Description for Task 4",
-      priority: "Low",
-      column: "Todo",
-    },
-    {
-      id: "5",
-      title: "Task 5",
-      description: "Description for Task 5",
-      priority: "Medium",
-      column: "In Progress",
-    },
-    {
-      id: "6",
-      title: "Task 6",
-      description: "Description for Task 6",
-      priority: "High",
-      column: "Done",
-    },
-  ];
+export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
+  //   const initialTasks = [
+  //     {
+  //       id: "1",
+  //       title: "Task 1",
+  //       description: "Description for Task 1",
+  //       priority: "Low",
+  //       column: "Todo",
+  //     },
+  //     {
+  //       id: "2",
+  //       title: "Task 2",
+  //       description: "Description for Task 2",
+  //       priority: "Medium",
+  //       column: "In Progress",
+  //     },
+  //     {
+  //       id: "3",
+  //       title: "Task 3",
+  //       description: "Description for Task 3",
+  //       priority: "High",
+  //       column: "Done",
+  //     },
+  //     {
+  //       id: "4",
+  //       title: "Task 4",
+  //       description: "Description for Task 4",
+  //       priority: "Low",
+  //       column: "Todo",
+  //     },
+  //     {
+  //       id: "5",
+  //       title: "Task 5",
+  //       description: "Description for Task 5",
+  //       priority: "Medium",
+  //       column: "In Progress",
+  //     },
+  //     {
+  //       id: "6",
+  //       title: "Task 6",
+  //       description: "Description for Task 6",
+  //       priority: "High",
+  //       column: "Done",
+  //     },
+  //   ];
   const [tasks, setTasks] = useState<Task[]>(() => {
     const savedTasks = localStorage.getItem("tasks");
-    console.log(savedTasks);
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
-
-  console.log("tasks", tasks);
 
   const [filterPriority, setFilterPriority] = useState<Priority | "All">("All");
   const [searchQuery, setSearchQuery] = useState("");

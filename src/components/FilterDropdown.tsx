@@ -1,4 +1,3 @@
-import React from "react";
 import { Priority } from "../types";
 import { useTaskContext } from "../context/TasksContext";
 import {
@@ -10,7 +9,7 @@ import {
   Select,
 } from "../styles/StyledComponents";
 
-export const FilterDropdown: React.FC = () => {
+export const FilterDropdown = () => {
   const { filterPriority, setFilterPriority, searchQuery, setSearchQuery } =
     useTaskContext();
 

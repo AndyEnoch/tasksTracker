@@ -1,7 +1,4 @@
-import React, { useState } from "react";
 import styled from "styled-components";
-import { useTaskContext } from "../context/TasksContext";
-import { Task } from "../types";
 import { TaskForm } from "./TaskAddForm";
 
 interface ModalProps {
@@ -48,13 +45,7 @@ const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-const AddTaskItem: React.FC<ModalProps> = ({ title, isOpen, onClose }) => {
-  const { editTask } = useTaskContext();
-  const [editData, setEditData] = useState({} as Task);
-
-  const handleSave = () => {
-    editTask(editData);
-  };
+const AddTaskItem = ({ title, isOpen, onClose }: ModalProps) => {
   if (!isOpen) return null;
 
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 import { Column as ColumnType, Task } from "../types";
 import { TaskItem } from "./TaskItem";
@@ -13,7 +12,7 @@ interface ColumnProps {
   tasks: Task[];
 }
 
-export const Column: React.FC<ColumnProps> = ({ title, tasks }) => {
+export const Column = ({ title, tasks }: ColumnProps) => {
   return (
     <ColumnContainer>
       <ColumnTitle>{title}</ColumnTitle>
