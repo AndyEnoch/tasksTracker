@@ -1,12 +1,19 @@
 import "./App.css";
-import { TaskList } from "./components/TaskList";
+import { Board } from "./components/Board";
 import { TaskProvider } from "./context/TasksContext";
+import { Button, FlexContainer, Title } from "./styles/StyledComponents";
 
 function App() {
   return (
-    <TaskProvider>
-      <TaskList />
-    </TaskProvider>
+    <>
+      <FlexContainer style={{ padding: "1rem" }}>
+        <Title>Task Tracker</Title>
+        <Button onClick={() => console.log("Add Task")}>Add Task</Button>
+      </FlexContainer>
+      <TaskProvider>
+        <Board />
+      </TaskProvider>
+    </>
   );
 }
 
