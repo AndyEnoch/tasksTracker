@@ -9,7 +9,7 @@ import {
   Select,
 } from "../styles/StyledComponents";
 
-export const FilterDropdown = () => {
+const FilterDropdown = () => {
   const { filterPriority, setFilterPriority, searchQuery, setSearchQuery } =
     useTaskContext();
 
@@ -51,3 +51,5 @@ export const FilterDropdown = () => {
     </FilterContainer>
   );
 };
+
+export default FilterDropdown;

@@ -1,6 +1,6 @@
 import { Droppable } from "react-beautiful-dnd";
 import { Column as ColumnType, Task } from "../types";
-import { TaskItem } from "./TaskItem";
+import TaskItem from "./TaskItem";
 import {
   ColumnContainer,
   ColumnTitle,
@@ -12,7 +12,7 @@ interface ColumnProps {
   tasks: Task[];
 }
 
-export const Column = ({ title, tasks }: ColumnProps) => {
+const Column = ({ title, tasks }: ColumnProps) => {
   return (
     <ColumnContainer>
       <ColumnTitle>{title}</ColumnTitle>
@@ -29,3 +29,5 @@ export const Column = ({ title, tasks }: ColumnProps) => {
     </ColumnContainer>
   );
 };
+
+export default Column;

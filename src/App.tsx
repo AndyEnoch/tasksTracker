@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import { Board } from "./components/Board";
-import { TaskProvider } from "./context/TasksContext";
+import Board from "./components/Board";
+import TaskProvider from "./context/TasksContext";
 import {
   Button,
   Container,
@@ -9,7 +9,7 @@ import {
   Title,
 } from "./styles/StyledComponents";
 import AddTaskItem from "./components/AddTaskItem";
-import { FilterDropdown } from "./components/FilterDropdown";
+import FilterDropdown from "./components/FilterDropdown";
 
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
