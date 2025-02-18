@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TaskForm } from "./TaskAddForm";
+import TaskForm from "./TaskAddForm";
 
 interface ModalProps {
   title: string;

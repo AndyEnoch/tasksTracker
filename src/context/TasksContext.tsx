@@ -23,7 +23,7 @@ export const useTaskContext = () => {
   return context;
 };
 
-export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
+const TaskProvider = ({ children }: { children: React.ReactNode }) => {
   //   const initialTasks = [
   //     {
   //       id: "1",
@@ -126,3 +126,5 @@ export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
     </TaskContext.Provider>
   );
 };
+
+export default TaskProvider;

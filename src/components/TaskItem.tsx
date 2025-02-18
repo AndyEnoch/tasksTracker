@@ -19,7 +19,7 @@ interface TaskItemProps {
   index: number;
 }
 
-export const TaskItem = ({ task, index }: TaskItemProps) => {
+const TaskItem = ({ task, index }: TaskItemProps) => {
   const { editTask, deleteTask } = useTaskContext();
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState(task);
@@ -71,3 +71,5 @@ export const TaskItem = ({ task, index }: TaskItemProps) => {
     </Draggable>
   );
 };
+
+export default TaskItem;

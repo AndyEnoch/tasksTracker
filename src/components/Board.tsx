@@ -1,12 +1,12 @@
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
-import { Column } from "./Column";
+import Column from "./Column";
 import { Column as ColumnType } from "../types";
 import { BoardContainer } from "../styles/StyledComponents";
 import { useTaskContext } from "../context/TasksContext";
 
 const COLUMNS: ColumnType[] = ["Todo", "In Progress", "Done"];
 
-export const Board = () => {
+const Board = () => {
   const { tasks, moveTask, filterPriority, searchQuery } = useTaskContext();
 
   const filteredTasks = tasks.filter((task) => {
@@ -48,3 +48,5 @@ export const Board = () => {
     </DragDropContext>
   );
 };
+
+export default Board;

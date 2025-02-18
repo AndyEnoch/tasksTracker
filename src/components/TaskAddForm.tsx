@@ -13,7 +13,7 @@ import {
   TextArea,
 } from "../styles/StyledComponents";
 
-export const TaskForm = ({ onClose }: { onClose: () => void }) => {
+const TaskForm = ({ onClose }: { onClose: () => void }) => {
   const { addTask } = useTaskContext();
   const [formData, setFormData] = useState({
     title: "",
@@ -121,3 +121,5 @@ export const TaskForm = ({ onClose }: { onClose: () => void }) => {
     </FormContainer>
   );
 };
+
+export default TaskForm;
